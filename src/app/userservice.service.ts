@@ -11,5 +11,12 @@ export class UserserviceService {
   foundUser!: Users;
   allRepos!: Repos;
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.foundUser = new Users("","","","",0,0,0,"",new Date);
+    this.allRepos = new Repos("","","",new Date,0,0,"");
+
+   }
+   searchUser (searchName: string){
+
+   }
 }
