@@ -8,6 +8,7 @@ import { UserserviceService } from './userservice.service';
 import { UsersComponent } from './users/users.component';
 import { DatepipePipe } from './datepipe.pipe';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
     RepositoriesComponent,
     UsersComponent,
     DatepipePipe,
-    SearchFormComponent
+    SearchFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
