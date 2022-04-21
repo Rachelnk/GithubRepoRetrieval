@@ -7,13 +7,15 @@ import { RepositoriesComponent } from './repositories/repositories.component';
 import { UserserviceService } from './userservice.service';
 import { UsersComponent } from './users/users.component';
 import { DatepipePipe } from './datepipe.pipe';
+import { SearchFormComponent } from './search-form/search-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RepositoriesComponent,
     UsersComponent,
-    DatepipePipe
+    DatepipePipe,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,
