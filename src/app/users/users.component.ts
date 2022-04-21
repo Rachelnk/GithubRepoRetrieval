@@ -35,6 +35,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.search('rachelnk')
   }
 
 }
