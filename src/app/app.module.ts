@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { UserserviceService } from './userservice.service';
 import { UsersComponent } from './users/users.component';
+import { DatepipePipe } from './datepipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     RepositoriesComponent,
-    UsersComponent
+    UsersComponent,
+    DatepipePipe
   ],
   imports: [
     BrowserModule,
