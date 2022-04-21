@@ -8,6 +8,8 @@ import { Repos } from './repos';
   providedIn: 'root'
 })
 export class UserserviceService {
+  foundUser!: Users;
+  allRepos!: Repos;
 
   constructor() { }
 }
