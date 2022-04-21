@@ -8,8 +8,8 @@ import { Repos } from './repos';
   providedIn: 'root'
 })
 export class UserserviceService {
-  foundUser!: Users;
-  allRepos!: Repos;
+  foundUser?: Users;
+  allRepos?: Repos;
 
   constructor(private http: HttpClient) {
     this.foundUser = new Users("","","","",0,0,0,"",new Date);
