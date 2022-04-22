@@ -1,7 +1,7 @@
-# Quotes
+# GitHub repository retrieval
 
 ## Description
-##### This application provides an interface for users to create quotes and have those quotes voted on whether they are inspirational or terrible by other users. The downvotes and the upvotes are displayed next to the specific quote.
+##### This application enables users to retireve GitHub repos by searching the username or repository name.
 
 ## Authors
 #### Rachel Kiarie
