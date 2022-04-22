@@ -1,27 +1,36 @@
-# GithubRepoRetrieval
+# GitHub repository retrieval
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Description
+##### This application enables users to retireve GitHub repos by searching the username or repository name.
 
-## Development server
+## Authors
+#### Rachel Kiarie
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Dependencies
+* There are no libraries you need to install at this point.
+* Supported OS Windows 10, 8, 7, MacOS, Linus distros (Ubuntu, Debian, Fedora).
 
-## Code scaffolding
+## Installation Instructions
+* Clone the repository to your local machine. e.g. `$ git clone remote URL`
+* `cd quotes`
+* `npm install`
+* `ng serve` Navigate to `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Bugs
+There are no known bugs at the moment.
 
-## Build
+## Technologies used
+* Typescript
+* Javascript
+* HTML
+* CSS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Support and contact details
+##### You can reach out via `rachael.kiarie@student.moringaschool.com` or `rachelnk94@gmail.com`
+ ### License
+ * MIT License
+ ## Copyright (c) 2022
+ 
+ ## Contributors:
+ * Rachel Kiarie
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
