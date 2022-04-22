@@ -9,8 +9,8 @@ import { Repos } from '../repos';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  user!: Users;
-  repo!: Repos;
+  user?: Users;
+  repo?: Repos;
 
   constructor(public myService: UserserviceService, private repoService: UserserviceService) { }
   search(searchName:any) {

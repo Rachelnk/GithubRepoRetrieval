@@ -11,8 +11,7 @@ import { RepositoriesComponent } from './repositories/repositories.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserserviceService } from './userservice.service';
 import { DatePipe } from '@angular/common';
-import { NgProgressModule } from '@ngx-progressbar/core';
-import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+
 import { Users } from './users';
 import { DatepipePipe } from './datepipe.pipe';
 import { HighlightDirective } from './highlight.directive';

@@ -8,12 +8,12 @@ import { Repos } from '../repos';
   styleUrls: ['./repositories.component.css']
 })
 export class RepositoriesComponent implements OnInit {
-  repo: Repos;
+  repo?: Repos;
 
 
   constructor(public repoService: UserserviceService) { }
   searchRepo (searchName: any) {
-    this.repoService.getReopos(searchName).then(
+    this.repoService.getRepos(searchName).then(
       (results: any)=>{
         this.repo =this.repoService.allRepos
         console.log(this.repo);

@@ -1,7 +1,6 @@
 import { HostListener } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { Directive } from '@angular/core';
-import { threadId } from 'worker_threads';
 
 @Directive({
   selector: '[appHighlight]'
