@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Users } from './users';
+// import { Users } from './users';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Repos } from './repos';
+// import { Repos } from './repos';
 import { UserInterface } from './interface/user';
 import { RepoInterface } from './interface/repo';
 import { Observable } from 'rxjs';
