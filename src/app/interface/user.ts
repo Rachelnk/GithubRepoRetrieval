@@ -12,7 +12,8 @@ export interface UserInterface {
       followers:number,
       following:number,
       avatar_url:string,
-      created_at:Date,
+      updated_by: string;
+      created_at: string,
       followers_url: string,
       repos_url: string,
       apiKey?: Boolean,

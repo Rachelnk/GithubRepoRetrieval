@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Users } from './users';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment.prod';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Repos } from './repos';
 import { UserInterface } from './interface/user';
 import { RepoInterface } from './interface/repo';
@@ -22,47 +22,31 @@ export class UserserviceService {
 
    }
    githubUser(): Observable<UserInterface> {
-    let headers = new HttpHeaders({ 'Authorization': 'token ' + environment.Api_Key });
-    let searchRequest = environment.GITHUB_API_URL + this.searchuser;
+    let headers = new HttpHeaders({ 'Authorization': 'token ' + environment.apiKey });
+    let searchRequest = environment. GITHUB_API_URL + this.searchuser;
     let options = { headers: headers };
     return this.http.get<UserInterface>(searchRequest, options);
-    // return this.http.get<UserInterface>(this.GITHUB_API_URL + this.searchuser + `?access_token=`+this.Git_token);
-    // this.search.id;
-    // this.search.followers;
   }
-   searchUser (searchName: string){
+  getUserRepos(): Observable<RepoInterface> {
+    let headers = new HttpHeaders({ 'Authorization': 'token ' + environment.apiKey });
+    let searchRequest = environment.GITHUB_API_URL + this.searchuser + "/repos";
+    let options = { headers: headers };
+    return this.http.get<RepoInterface>(searchRequest, options);
     
-    return new Promise<void>((resolve, reject) => {
-      this.http.get<Response>('https://api.github.com/users/'+searchName+'?access_token='+environment.apiKey).toPromise().then(
-        (result) => {
-          this.foundUser = result;
-          console.log(this.foundUser);
-          resolve();
-        },
-        (error) => {
-          console.log(error);
-          reject();
-        }
-      );
-    });
+  }
 
-   }
-   getRepos (searchName: any){
-    interface Repos{
-      
-     
-   }
-   return new Promise<void>((resolve,reject)=>{
-    this.http.get<Repos>('https://api.github.com/users/'+searchName+"/repos?order=created&sort=asc?access_token="+environment.apiKey).toPromise().then(
-      (results) => {
-        this.allRepos = results;
-        resolve();
-      },
-      (error) => {
-        console.log(error);
-        reject();
-      }
-    );
-  });
+  searchGithubRepo(): Observable<RepoInterface> {
+    return this.http.get<RepoInterface>(this.REPO_URL + this.searchRepo + "");
+  }
+
+  updateName(userName: string) {
+    this.searchuser = userName;
+  }
+
+  updateRepo(repoName: string) {
+    this.searchRepo = repoName;
+  }
+
+   
 }
-}
+
