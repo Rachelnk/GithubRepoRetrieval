@@ -20,6 +20,50 @@
       </form>
     </div>
   </header>
+  <div
+    *ngIf="gitprofile; then populateProfileData; else errorNoGitProfile"
+  ></div>
+  <ng-template #populateProfileData class="">
+    <div class="text-center text-light h2">Search Results...</div>
+    <div class="row">
+      <div
+        class="col-md-6 bg-warning text-light p-3 text-center"
+        id="userDetails"
+      >
+        <h4>Github User id: {{ gitprofile.id }}</h4>
+        <h1>{{ gitprofile.name }}</h1>
+        <img class="img-fluid" src="{{ gitprofile.avatar_url }}" alt="" />
+        <br />
+
+        <p>Followers : {{ gitprofile.followers }} <br /></p>
+        <p>Following : {{ gitprofile.following }}</p>
+        <p class="text-center">
+          <a href="{{ gitprofile.html_url }}">View Account on GitHub</a>
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-6 bg-primary p-3" id="aboutUser">
+        <h3 class="text-center">About User</h3>
+        <ul>
+          <li><span>Github username:</span> {{ gitprofile.login }}</li>
+          <li>
+            <span>Bio:</span>
+            <a href="{{ gitprofile.blog }}" target="blank">
+              {{ gitprofile.blog }}</a
+            >
+          </li>
+          <li><span>Company:</span> {{ gitprofile.company }}</li>
+          <li>
+            <span>Account created on:</span>
+            {{ gitprofile.created_at | date }}
+          </li>
+          <li>
+            <span>Account last updated on:</span>
+            {{ gitprofile.updated_at | date }}
+          </li>
+        </ul>
+        <br />
+      </div>
+    </div>
       
 
    
