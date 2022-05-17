@@ -3,6 +3,8 @@ import { Users } from './users';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Repos } from './repos';
+import { UserInterface } from './interface/user';
+import { RepoInterface } from './interface/repo';
 
 @Injectable({
   providedIn: 'root'
@@ -18,26 +20,7 @@ export class UserserviceService {
 
    }
    searchUser (searchName: string){
-    interface Response {
-      id: number;     
-      name: string;
-      blog: string;
-      repos: string;
-      company: string;
-      url:string,
-      login: string;
-      html_url:string;
-      location:string
-      public_repos:number;
-      followers:number;
-      following:number;
-      avatar_url:string;
-      created_at:Date;
-      followers_url: string;
-      repos_url: string;
-      apiKey?: Boolean;
-      apiUrl?: Boolean;
-    }
+    
     return new Promise<void>((resolve, reject) => {
       this.http.get<Response>('https://api.github.com/users/'+searchName+'?access_token='+environment.apiKey).toPromise().then(
         (result) => {
@@ -55,13 +38,7 @@ export class UserserviceService {
    }
    getRepos (searchName: any){
     interface Repos{
-      name:string;
-      html_url:string;
-      description:string;
-      forks:number;
-      watchers_count:number;
-      language:string;
-      created_at:Date;
+      
      
    }
    return new Promise<void>((resolve,reject)=>{
