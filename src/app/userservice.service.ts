@@ -8,16 +8,22 @@ import { Repos } from './repos';
   providedIn: 'root'
 })
 export class UserserviceService {
-  foundUser?: Users;
-  allRepos?: Repos;
+  searchuser = `rachelnk`
+  ExistingRepos: any;
+  searchRepo = "gitsearch"
 
   constructor(private http: HttpClient) {
-    this.foundUser = new Users("","","","",0,0,0,"",new Date);
-    this.allRepos = new Repos("","","",new Date,0,0,"");
+    // this.foundUser = new Users("","","","",0,0,0,"",new Date);
+    // this.allRepos = new Repos("","","",new Date,0,0,"");
 
    }
    searchUser (searchName: string){
     interface Response {
+      id: number;     
+      name: string;
+      blog: string;
+      repos: string;
+      company: string;
       url:string,
       login: string;
       html_url:string;
@@ -27,6 +33,10 @@ export class UserserviceService {
       following:number;
       avatar_url:string;
       created_at:Date;
+      followers_url: string;
+      repos_url: string;
+      apiKey?: Boolean;
+      apiUrl?: Boolean;
     }
     return new Promise<void>((resolve, reject) => {
       this.http.get<Response>('https://api.github.com/users/'+searchName+'?access_token='+environment.apiKey).toPromise().then(
