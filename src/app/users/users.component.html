@@ -63,36 +63,33 @@
         </ul>
         <br />
       </div>
-    </div>      
+    </div>   
+       <!-- Public repos -->
     
     <div class="text-center repos" id="reps">
-        <h2>Repositories</h2>
+        <h2>User Repositories</h2>
+        <p class="h4 text-secondary">
+          Public Repositories:
+          <span class="text-light">{{ gitprofile.public_repos }}</span>
+        </p>
       </div>
     <div class="container allrepos">
-      <div class="card" appHighlight *ngForOf="let repository of repo" style="width: 22rem;" class="repo">
+      <div class="card" appHighlight *ngForOf="let repo of githubrepos" style="width: 22rem;" class="repo">
         <div class="card-body" >
-          <h5 class="card-title"><span class="top">Repo Name:</span> &nbsp;{{repository.name}} </h5>
+          <h5 class="card-title"><span class="top">Repo Name:</span> &nbsp;{{repo.name}} </h5>
           <div class="card-text">
             <hr>
-            <div class="desc"><span class="top">Description:</span> &nbsp;{{repository.description}} 
+            <div class="desc"><span class="top">Description:</span> &nbsp;{{repo.description}} 
             </div>
-            <hr>
-            <div class="card-subtitle mb-2">
-                <span class="top">Language: </span> {{repository.Language}}
-            </div>
-            <div class="card-subtitle mb-2"><span class="top">Created:&nbsp; <span id="created">{{repository.created_at | datepipe}}</span> &nbsp;  On:</span> &nbsp;{{repository.created_at | date}}
+            <hr>           
+            <div class="card-subtitle mb-2"><span class="top">Created:&nbsp; <span id="created">{{repo.created_at | datepipe}}</span> &nbsp;  On:</span> &nbsp;{{repo.created_at | date}}
             </div>
           </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer">            
+           
             <div class="btn-group" role="group" aria-label="Third group">
-              <button class="btn btn-sm btn-info"><i class="fa fa-eye" style="font-size:16px"></i> &nbsp;<span class="forks">{{repository.watchers_count}}</span></button>
-            </div>
-            <div class="btn-group" role="group" aria-label="Third group">
-              <button class="btn btn-sm btn-outline-danger"><i class="fa fa-code-fork" style="font-size:16px"></i> &nbsp;<span class="forks">{{repository.forks}}</span></button>
-            </div>
-            <div class="btn-group" role="group" aria-label="Third group">
-              <button class="btn btn-sm btn-success" id="visit"><a href="{{repository.html_url}}" class="card-link">VIEW &nbsp; <i class="fa fa-arrow-circle-right" style="font-size:16px"></i></a> </button> 
+              <button class="btn btn-sm btn-success" id="visit"><a href="{{repo.html_url}}" class="card-link">View on GitHub&nbsp; <i class="fa fa-arrow-circle-right" style="font-size:16px"></i></a> </button> 
             </div>
           </div>
       </div>

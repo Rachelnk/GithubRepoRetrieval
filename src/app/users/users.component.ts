@@ -13,7 +13,7 @@ import { FormControl } from '@angular/forms';
 export class UsersComponent implements OnInit {
   username!: string;
   gitprofile!: Users;
-  repo: any;
+  githubrepos: any;
 
   constructor(private myService: UserserviceService) { 
     this.username = `${this.myService.searchuser}`
@@ -28,8 +28,8 @@ export class UsersComponent implements OnInit {
     // alert(this.gitprofile);
 
     this.myService.getUserRepos().subscribe(repository => {
-      this.repo = repository
-      console.log(this.repo);
+      this.githubrepos = repository
+      console.log(this.githubrepos);
 
     })
   }
@@ -45,7 +45,7 @@ export class UsersComponent implements OnInit {
       }
     )
     this.myService.getUserRepos().subscribe(repository => {
-      this.repo = repository
+      this.githubrepos = repository
     })
 
   
