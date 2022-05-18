@@ -18,4 +18,5 @@ export interface UserInterface {
   repos_url: string;
   apiKey?: Boolean;
   apiUrl?: Boolean;
+  // items: any;
 }
