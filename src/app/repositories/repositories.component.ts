@@ -12,17 +12,14 @@ export class RepositoriesComponent implements OnInit {
   reponame: any; 
   ExistingRepos: any;
 
-  constructor(public userService: UserserviceService) { 
+  constructor(private userService: UserserviceService) { 
     this.userService = userService
     console.log(this.reponame);
   }
   searchGithubRepo() {
     this.userService.updateRepo(this.reponame);
-    // this.myService.getUserRepos().subscribe(repository => {
-      // this.githubrepos = repository
-      // console.log(this.githubrepos);
     this.userService.searchGithubRepo().subscribe(
-      data => { this.ExistingRepos = data;
+      data => { this.ExistingRepos = data ['items'];
       }
     )
   }
@@ -31,7 +28,7 @@ export class RepositoriesComponent implements OnInit {
   ngOnInit(): void {
     this.userService.searchGithubRepo().subscribe(
       data => {
-        this.ExistingRepos = data;
+        this.ExistingRepos = data ['items'];
         // data['items']
         console.log(this.ExistingRepos);
       }

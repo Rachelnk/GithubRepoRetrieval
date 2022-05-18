@@ -23,7 +23,7 @@
   
     <div class="container">
         <div class="container allrepos">
-            <div class="card" appHighlight *ngForof="let repo of ExistingRepos" style="width: 22rem;" class="repo">
+            <div class="card" *ngFor="let repo of ExistingRepos" style="width: 22rem;" class="repo">
               <div class="card-body">
                 <h5 class="card-title">Repo Name: &nbsp;{{repo.name}} </h5>
                 <div class="card-text">
