@@ -1,34 +1,50 @@
 
 <div class="container-fluid">
-  <app-search-form (searchOutput)= "searchRepo($event)"></app-search-form>
+  <div class="container d-flex flex-wrap justify-content-center">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0" (ngSubmit)="searchGithubRepo()">
+      <div class="form-group d-flex">
+        <label for="search"></label>
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Search..."
+          [(ngModel)]="reponame"
+          name="reponame"
+        />
+        <button class="btn btn-primary m-1" type="submit">Search</button>
+        <br />
+      </div>
+      <small class="text-muted m-1">Search for: {{ reponame }}</small>
+    </form>
+  </div>
+  <p>Repos Data</p>
+  <div *ngIf="ExistingRepos; then RepoData; else errorNoRepoData"></div>
+  <ng-template #RepoData class="">
+  
     <div class="container">
         <div class="container allrepos">
-            <div class="card" appHighlight *ngForof="let repository of repo" style="width: 22rem;" class="repo">
+            <div class="card" *ngFor="let repo of ExistingRepos" style="width: 22rem;" class="repo">
               <div class="card-body">
-                <h5 class="card-title">Repo Name: &nbsp;{{repository.name}} </h5>
+                <h5 class="card-title">Repo Name: &nbsp;{{repo.name}} </h5>
                 <div class="card-text">
                   <hr>
-                  <div class="desc"><span class="top">Description:</span> &nbsp;{{repository.description}} 
+                  <div class="desc"><span class="top">Description:</span> &nbsp;{{repo.description}} 
                   </div>
                   <hr>
-                  <div class="card-subtitle mb-2">
-                      <span class="top">Language: </span> {{repository.language}}
-                  </div>
-                  <div class="card-subtitle mb-2"><span class="top">Created On:</span> &nbsp;{{repository.created_at | date}}</div>
+                  
+                  <div class="card-subtitle mb-2"><span class="top">Created On:</span> &nbsp;{{repo.created_at | date}}</div>
                 </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer">              
+                  
                   <div class="btn-group" role="group" aria-label="Third group">
-                    <button class="btn btn-sm btn-info"><i class="fa fa-eye" style="font-size:16px"></i> {{repository.watchers_count}}</button>
-                  </div>
-                  <div class="btn-group" role="group" aria-label="Third group">
-                    <button class="btn btn-sm btn-outline-danger"><i class="fa fa-code-fork" style="font-size:16px"></i> {{repository.forks}}</button>
-                  </div>
-                  <div class="btn-group" role="group" aria-label="Third group">
-                    <button class="btn btn-sm btn-success" id="visit"><a href="{{repository.html_url}}" class="card-link">Visit &nbsp; <i class="fa fa-arrow-circle-right" style="font-size:16px"></i></a> </button> 
+                    <button class="btn btn-sm btn-success" id="visit"><a href="{{repo.html_url}}" class="card-link">View Repo On Github&nbsp; <i class="fa fa-arrow-circle-right" style="font-size:16px"></i></a> </button> 
                   </div>
                 </div>
             </div>
           </div>
     </div>
+  </ng-template>
+
+  <ng-template #errorNoRepoData> "No Repo Data" </ng-template>
 </div>

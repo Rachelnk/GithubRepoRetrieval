@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
 import { Users } from '../users';
 import { Repos } from '../repos';
+import { UserInterface } from '../interface/user';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -9,33 +11,44 @@ import { Repos } from '../repos';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  user?: Users;
-  repo?: Repos;
+  username!: string;
+  gitprofile!: Users;
+  githubrepos: any;
 
-  constructor(public myService: UserserviceService, private repoService: UserserviceService) { }
-  search(searchName:any) {
-    this.myService.searchUser(searchName).then(
-      (success: any)=>{
-        this.user = this.myService.foundUser;
-      },
-      (error: any)=>{
-        console.log(error)
-      }
-    );
-      this.repoService.getRepos(searchName).then(
-        (results: any)=>{
-          this.repo =this.repoService.allRepos
-          console.log(this.repo);
-        },
-        (error: any)=>{
-          console.log(error);
-        }
-      );
+  constructor(private myService: UserserviceService) { 
+    this.username = `${this.myService.searchuser}`
+    console.log(this.username);
+  }
+  searchGithub() {
+    this.myService.updateName(this.username);
+    this.myService.githubUser().subscribe(
+      user => { this.gitprofile = user }
+    )
+    // this.gitprofile = <any>this.userService.searchuser
+    // alert(this.gitprofile);
 
+    this.myService.getUserRepos().subscribe(repository => {
+      this.githubrepos = repository
+      console.log(this.githubrepos);
+
+    })
   }
 
+  
+
   ngOnInit(): void {
-    this.search('rachelnk')
+    this.myService.githubUser().subscribe(
+      data => {
+        this.gitprofile = data
+        console.log(this.gitprofile);
+
+      }
+    )
+    this.myService.getUserRepos().subscribe(repository => {
+      this.githubrepos = repository
+    })
+
+  
   }
 
 }

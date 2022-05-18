@@ -4,6 +4,25 @@
   color: white;
   border: 1px solid white;
 }
+#userDetails{
+  background: #3b3a3b!important; 
+}
+#aboutUser{
+  background-color: rgb(224, 224, 223)!important;
+}
+
+#repoDisplay{
+  background-color: rgb(32, 54, 126)!important;
+  /* height: 50vh; */
+}
+ul>li{
+  list-style-type: none;
+  margin: 15px;
+}
+li>span{
+  font-weight: 700;
+}
+
 img{
   width: 100%;
   border-radius: 8px;
@@ -11,9 +30,7 @@ img{
 .card{
   /* background: teal; */
   background-color: rgba(5, 146, 146, 0.6);
-  box-shadow: 3px 3px 5px black;
-
-  
+  box-shadow: 3px 3px 5px black;  
 }
 .repo{
   background-color:rgba(232, 253, 255, 0.705);
