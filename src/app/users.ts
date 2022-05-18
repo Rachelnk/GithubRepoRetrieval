@@ -1,5 +1,5 @@
 export class Users {
-  static result: any;
+  
   constructor(
     public id: number,
     public followers: number,
